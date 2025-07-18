@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parth Mahajan — Professional Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Chic Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f7f3ed;
+      --surface: #fff8f0;
+      --primary: #654321;
+      --accent: #9d795e;
+      --badge: linear-gradient(92deg,#8a6747 30%, #d7b98a 100%);
+      --alt: #efe6db;
+      --heading: #3e2510;
+      --text: #3d2e19;
+      --muted: #9d795e;
+      --subtle: #ecd2b6;
+      --card-shadow: 0 4px 28px 0 #e1c3a81a;
+      --brown-shadow: 0 0 32px 0 #ad94703a;
+      --icon-size: 52px;
+    }
+    html, body {
+      background: var(--background);
+      color: var(--text);
+      font-family: 'Inter', 'Montserrat', Arial, sans-serif;
+      margin: 0; padding: 0;
+    }
+    body {
+      min-height: 100vh;
+    }
+    .headline-card {
+      background: var(--surface);
+      border-radius: 2.3em;
+      box-shadow: var(--brown-shadow);
+      margin: 2.5em auto 2.2em;
+      padding: 2.6em 1.3em 2.1em 1.3em;
+      max-width: 730px;
+      border: 2.3px solid var(--primary);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .name {
+      font-family: 'Montserrat', serif;
+      font-size: 2.3em;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: .045em;
+      margin-bottom: .40em;
+      z-index: 2;
+    }
+    .title {
+      font-size: 1.04em;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: .96em;
+      display: block;
+      z-index: 2;
+    }
+    .badge-list {
+      display: flex;
+      gap: 0.7em;
+      justify-content: center;
+      margin: .30em 0 1.1em 0;
+    }
+    .badge {
+      background: var(--badge);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.0em;
+      border-radius: 1.3em;
+      padding: 0.33em 1.2em;
+      letter-spacing: 0.07em;
+      border: none;
+      box-shadow: 0 0 15px #d4bb9177;
+      font-family: 'Inter',sans-serif;
+      display:inline-block;
+    }
+    .headline-summary {
+      margin-top: .35em;
+      font-size: 1.01em;
+      max-width: 460px;
+      color: var(--text);
+      text-align: center;
+      font-weight: 500;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.3em;
+      margin: 0 auto 0.65em auto;
+      z-index: 2;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-family: 'Montserrat',sans-serif; font-weight:600;
+      font-size: .98em;
+      color: var(--primary);
+      text-decoration: none;
+      background: #efe6db;
+      padding: .41em 1.08em;
+      border-radius: 1.3em;
+      border: 1.1px solid #e9d1b1;
+      transition: background .16s,color .16s, box-shadow .13s;
+    }
+    nav a:hover {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 3px 13px 0 #ad947099;
+    }
+    section {
+      background: var(--surface);
+      box-shadow: var(--card-shadow);
+      border-radius: 1.5em;
+      max-width: 800px;
+      margin: 2.2em auto;
+      padding: 1.8em 2.1em 2.1em;
+      border: 1px solid var(--primary);
+    }
+    h2 {
+      font-family: 'Montserrat', serif;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.22em;
+      margin-bottom: 0.9em;
+      letter-spacing: 0.055em;
+    }
+    .cards {
+      display: flex; flex-wrap: wrap;
+      gap: 1.05em; justify-content: space-between; margin:0.8em 0 0.1em;
+    }
+    .card {
+      background: var(--background);
+      border-radius: 1.1em;
+      min-width: 200px; flex: 1 1 215px;
+      box-shadow: 0 2px 14px -1px #a47a5522;
+      padding: 1em 1em 1.0em;
+      border: 1.1px solid #a74d15;
+      margin-bottom:0.3em;
+      font-size: 1em;
+    }
+    .card h3 {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.01em;
+      margin: 0.09em 0 0.45em 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .card p { color: var(--text); font-size: .99em;}
+    .skills-wrap {
+      display: flex; flex-wrap: wrap; gap: .62em; margin-top:.72em;
+    }
+    .skill {
+      padding: 0.28em 0.98em 0.28em;
+      background: #f3e9df;
+      color: var(--primary); font-family:'Inter', monospace;
+      font-weight: 700; border-radius: 2em; font-size: .98em;
+      border: 1px solid #dab893;
+      margin-bottom: .07em; cursor:pointer;
+      box-shadow:0 2px 8px -1px #a47a5518;
+      transition: background .13s, color .12s;
+    }
+    .skill:hover {background: var(--primary);color:#fff;}
+    .timeline {
+      border-left: 2px solid var(--primary);
+      margin-left: 0.7em; padding-left: 1.1em; margin-bottom: 0.8em;
+    }
+    .timeline-entry { margin-bottom: 0.9em; }
+    .timeline-title {
+      color: var(--accent);
+      font-weight: 700; font-size: .99em;
+      margin-bottom: 0.07em;
+      font-family:'Montserrat',sans-serif;
+    }
+    .timeline-period {
+      font-size: .93em;
+      color: var(--muted); font-family:'Inter', monospace;
+    }
+    .timeline-body { margin-top: 0.07em; font-size:.99em; color:var(--text);}
+    .contact-method { display:flex;align-items:center;gap:0.7em;margin:.85em 0 .16em 0; }
+    .contact-icon { font-size:1.33em;}
+    .contact-link {
+      color: var(--primary); font-weight: 700; font-size:.97em;
+      text-decoration:none; letter-spacing:0.045em; transition:color 0.12s;
+    }
+    .contact-link:hover { color: var(--accent); text-decoration: underline;}
+    .city { margin-top: 0.8em; color: var(--muted); font-size: .96em;}
+    /* Social Portfolio styles */
+    .social-section {
+      background: var(--alt);
+      border-radius: 1.2em;
+      box-shadow: 0 2px 14px -3px #b88c3a15;
+      border: 1.2px solid #dab893;
+      padding: 1.5em 1.5em 1.6em;
+      margin: 2em auto;
+      max-width: 800px;
+      position: relative;
+    }
+    .social-heading {
+      color: var(--primary);
+      font-size: 1.12em;
+      font-family: 'Montserrat', serif;
+      font-weight: 700;
+      margin-bottom: .45em;
+      text-align: center;
+    }
+    .social-line {
+      color: var(--text);
+      font-size: .97em;
+      margin-bottom:1.02em;
+      font-family:'Inter',sans-serif; font-weight:500;
+      text-align: center;
+      max-width: 560px; margin-left: auto; margin-right: auto;
+    }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4em 2.5em;
+      justify-items: center;
+      align-items: start;
+      margin-bottom: 1.1em;
+    }
+    .social-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .7em;
+      margin-bottom: .6em;
+      text-align: center;
+    }
+    .social-img {
+      width: var(--icon-size);
+      height: var(--icon-size);
+      object-fit: contain;
+      border-radius: .7em;
+      box-shadow:0 0 10px #bfa37830, 0 3px 9px #ad947033;
+      border: 1px solid #d9c1a0;
+      margin-bottom: .19em;
+      background: #fff7ee;
+      padding: .23em;
+    }
+    .social-caption {
+      font-weight: bold; color: var(--accent); margin-bottom:.23em;
+      font-size: 1.01em;
+    }
+    .portfolio-details {
+      font-size:.98em; color:var(--text); font-family:'Inter',sans-serif; margin-bottom:.14em;
+    }
+    @media (max-width:705px) {
+      .headline-card, section, .social-section{ padding:.61em 0.08em 1.02em; border-radius:.8em; }
+      .social-grid {grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="headline-card">
+      <span class="name">PARTH MAHAJAN</span>
+      <span class="title">Strategic Communicator | Recruitment Marketing | PR & Leadership</span>
+      <div class="badge-list">
+        <span class="badge">Visionary</span>
+        <span class="badge">Brand Architect</span>
+        <span class="badge">Leader</span>
+      </div>
+      <div class="headline-summary">
+        Charting new benchmarks through <b>data-driven storytelling</b>, <span style="color:#7d5729;">digital innovation</span>, and a relentless focus on branding and community-building in recruitment and digital media.
+      </div>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#portfolio">Social Media Portfolio</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section id="about">
+    <h2>About Me</h2>
+    <div style="font-size:.97em; margin-bottom:.81em;">
+      <span style="color:var(--primary); font-weight:600;">Driven. Strategic. Inventive.</span> General Secretary at Spade Society, former Recruitment Marketing Manager at Talent Wing Consultants, and PR specialist. Known for <b>inspiring teams, elevating brands, and delivering measurable impact</b>.
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Leadership</h3>
+        <p>Spade Society General Secretary, led high-visibility events and partnerships, setting benchmarks in collegiate leadership and growth.</p>
+      </div>
+      <div class="card">
+        <h3>Recruitment Marketing</h3>
+        <p>Transformed Talent Wing Consultants’ digital presence, attracting top candidates and clients with powerful storytelling and campaigns.</p>
+      </div>
+      <div class="card">
+        <h3>PR & Communication</h3>
+        <p>Built brand stories, raised engagement, and turned vision into results through expert PR, outreach, and marketing innovation.</p>
+      </div>
+    </div>
+  </section>
+  <section id="skills">
+    <h2>Key Skills</h2>
+    <div class="skills-wrap">
+      <div class="skill">Strategic Communication</div>
+      <div class="skill">Social Media Strategy</div>
+      <div class="skill">Leadership</div>
+      <div class="skill">Strategic Planning</div>
+      <div class="skill">Critical Thinking</div>
+      <div class="skill">Active Listening</div>
+      <div class="skill">Media Relations</div>
+      <div class="skill">Content Marketing</div>
+      <div class="skill">Performance Metrics</div>
+      <div class="skill">Public Relations</div>
+      <div class="skill">Event Planning</div>
+      <div class="skill">Problem Solving</div>
+      <div class="skill">Community Engagement</div>
+      <div class="skill">Communication Strategy</div>
+      <div class="skill">Performance Analysis</div>
+    </div>
+  </section>
+  <section id="experience">
+    <h2>Experience & Leadership</h2>
+    <div class="timeline">
+      <div class="timeline-entry">
+        <span class="timeline-title">General Secretary — Spade Shivaji</span>
+        <span class="timeline-period">July 2024 – Present</span>
+        <div class="timeline-body">
+          Led events and society initiatives, managed PR networks and collaborations; trusted problem solver and outcome driver.
+        </div>
+      </div>
+      <div class="timeline-entry">
+        <span class="timeline-title">Recruitment Marketing Manager — Talent Wing Consultants LLP</span>
+        <span class="timeline-period">Jan 2025 – Mar 2025</span>
+        <div class="timeline-body">
+          Built employer brands, produced engaging content, and led conversion-focused campaign strategies.
+        </div>
+      </div>
+      <div class="timeline-entry">
+        <span class="timeline-title">Technical Head — Democrats Shivaji College</span>
+        <span class="timeline-period">Oct 2024 – May 2025</span>
+        <div class="timeline-body">
+          Directed visual design, led creative production, and ensured compelling event branding and promotion.
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="portfolio" class="social-section">
+    <div class="social-heading">Social Media Portfolio</div>
+    <div class="social-line">
+      Bringing brands to life, one scroll at a time — from viral reels to polished carousel posts, I blend storytelling and strategy to grow communities and drive impact.
+    </div>
+    <div class="social-grid">
+      <!-- LinkedIn -->
+      <div class="social-item">
+        <a href="https://www.canva.com/design/DAGtf67YOa8/uCk9kiUe7NQWSX4gMPIp9A/edit?utm_content=DAGtf67YOa8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" title="LinkedIn Portfolio">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="social-img" alt="LinkedIn Portfolio"/>
+        </a>
+        <div class="social-caption">LinkedIn Posts</div>
+        <div class="portfolio-details">
+          Video Post · Basic Post · Carousel Post
+        </div>
+        <div class="portfolio-details" style="color:#6e471f;">
+          “Professional, bold, and impactful. Every post engineered to build trust, amplify reach, and define your digital reputation.”
+        </div>
+      </div>
+      <!-- Spade Shivaji Instagram -->
+      <div class="social-item">
+        <a href="https://www.instagram.com/spade.shivaji/?igsh=MWpiY2hhd3N1dGg5cQ%3D%3D#" target="_blank" title="Spade Shivaji Instagram">
+          <img src="https://img.icons8.com/fluency/480/instagram-new.png" class="social-img" alt="Spade Instagram"/>
+        </a>
+        <div class="social-caption">Spade Shivaji</div>
+        <div class="portfolio-details">
+          General Secretary · Social Media Lead
+        </div>
+        <div class="portfolio-details" style="color:#6e471f;">
+          Orchestrated page strategy, created viral reels, and shaped creative brand tone.
+        </div>
+      </div>
+      <!-- Democrats Instagram -->
+      <div class="social-item">
+        <a href="https://www.instagram.com/shivaji_cultural?igsh=OGhiMmU3eHhsOWhp" target="_blank" title="Democrats Shivaji Instagram">
+          <img src="https://img.icons8.com/color/480/instagram-new--v1.png" class="social-img" alt="Democrats Instagram"/>
+        </a>
+        <div class="social-caption">Democrats Shivaji</div>
+        <div class="portfolio-details">
+          Technical Head
+        </div>
+        <div class="portfolio-details" style="color:#6e471f;">
+          Designed and edited reels, handled visual effects, and drove content engagement.
+        </div>
+      </div>
+      <!-- Anchorage Instagram -->
+      <div class="social-item">
+        <a href="https://www.instagram.com/democrats_shivaji?igsh=MW8wemZjeDUwMHc4Nw==" target="_blank" title="Anchorage Instagram">
+          <img src="https://img.icons8.com/papercut/480/instagram-new.png" class="social-img" alt="Anchorage Instagram"/>
+        </a>
+        <div class="social-caption">Anchorage</div>
+        <div class="portfolio-details">
+          Social Media Member
+        </div>
+        <div class="portfolio-details" style="color:#6e471f;">
+          Collaborated on creative reels and post-production — hands-on with both ideation and editing.
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-entry">
+        <span class="timeline-title">B.A. Economics (Major) & English (Minor)</span>
+        <span class="timeline-period">Shivaji College, University of Delhi, Aug 2023 – June 2024</span>
+      </div>
+      <div class="timeline-entry">
+        <span class="timeline-title">Senior Secondary — Commerce with Maths</span>
+        <span class="timeline-period">Jodhamal Public School, Jammu | April 2021 – May 2023</span>
+      </div>
+      <div class="timeline-entry">
+        <span class="timeline-title">Secondary</span>
+        <span class="timeline-period">Jodhamal Public School, Jammu | April 2010 – March 2021</span>
+      </div>
+    </div>
+  </section>
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="timeline">
+      <div class="timeline-entry">
+        <span class="timeline-title">Auditing Certification</span>
+        <span class="timeline-period">Gupta Gupta & Associates LLP, June 2024</span>
+      </div>
+      <div class="timeline-entry">
+        <span class="timeline-title">Recruitment Marketing Certification</span>
+        <span class="timeline-period">Talent Wing Consultants LLP, March 2025</span>
+      </div>
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-method">
+      <span class="contact-icon">📞</span>
+      <a class="contact-link" href="tel:+919541012236">+91 9541012236</a>
+    </div>
+    <div class="contact-method">
+      <span class="contact-icon">✉️</span>
+      <a class="contact-link" href="mailto:mahajanparth6996@gmail.com">mahajanparth6996@gmail.com</a>
+    </div>
+    <div class="contact-method">
+      <span class="contact-icon">🌐</span>
+      <a class="contact-link" href="https://www.linkedin.com/in/parth-mahajan-3aa20a233/" target="_blank" rel="noopener">LinkedIn Profile</a>
+    </div>
+    <div class="city">
+      New Delhi, India
+    </div>
+  </section>
+</body>
+</html>
